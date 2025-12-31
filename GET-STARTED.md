@@ -101,7 +101,7 @@ Alternatively, you can reference this guide directly via URL:
 1.  **Setup Development Environment**:
     - Initialize `server` (e.g., `npm init`) if required by TDD.
     - Initialize `app` project:
-      - iOS: Create Xcode project in `app/ios/`
+      - iOS: Use `xcodegen` to generate and maintain the Xcode project file in `app/ios/`
       - Android: Create Android project in `app/android/`
       - Web: Initialize web project in `app/web/` (e.g., `npx create-react-app app/web`)
       - Cross-platform: Use framework-specific commands (e.g., `flutter create` in `app/`)
