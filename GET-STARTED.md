@@ -52,6 +52,8 @@ Alternatively, you can reference this guide directly via URL:
      └── AGENTS.md                # This file
      ```
 
+     **Note:** See `HUMANS.md` for information about the human principals directing and operating this project (e.g., names, Apple Team ID, Bundle Root, etc.).
+
      ## Architecture
      *To be defined in Phase 2.*
 
