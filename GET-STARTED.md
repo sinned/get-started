@@ -3,7 +3,11 @@
 This guide contains instructions to bootstrap a new application project from scratch. It follows a "Stub -> Artifacts -> Code" workflow to ensure the project is well-planned before implementation.
 
 **Usage:**
-Pass this file to your AI assistant (Antigravity/Claude/Cursor/Windsurf) and ask it to: "Follow the instructions in INITIALIZE_CLEAN_PROJECT.md to initialize the repository."
+Pass this file to your AI assistant (Antigravity/Claude/Cursor/Windsurf) and ask it to: "Follow the instructions in GET-STARTED.md to initialize the repository."
+
+Alternatively, you can reference this guide directly via URL:
+- Share this URL with your AI assistant: `https://raw.githubusercontent.com/sinned/get-started/refs/heads/main/GET-STARTED.md`
+- Ask it to: "Follow the instructions in the document at that URL to initialize the repository."
 
 ---
 
@@ -43,6 +47,8 @@ Pass this file to your AI assistant (Antigravity/Claude/Cursor/Windsurf) and ask
      │   └── web/                 # Web Application (if applicable)
      ├── server/                  # Backend Server (Optional)
      ├── artifacts/               # Project Documentation (PRDs, TDDs, Logs)
+     ├── README.md                # Project README (keep updated)
+     ├── HUMANS.md                # Human principals and team information
      └── AGENTS.md                # This file
      ```
 
@@ -53,7 +59,19 @@ Pass this file to your AI assistant (Antigravity/Claude/Cursor/Windsurf) and ask
      *To be defined in Phase 2.*
      ```
 
-3. **Stub Directories**
+3. **Create `README.md`**
+   - Create a `README.md` at the root level with basic project information.
+   - Keep this file updated throughout all phases as the project evolves.
+
+4. **Create `HUMANS.md`**
+   - Create a `HUMANS.md` at the root level to document information about the human principals directing and operating the project.
+   - Include information such as:
+     - Names of principals
+     - Apple Team ID (for iOS development)
+     - Bundle Root (for iOS development)
+     - Any other relevant human/team identifiers needed for development
+
+5. **Stub Directories**
    - Create the following empty directories:
      - `app/` (and subdirectories as needed: `app/ios/`, `app/android/`, `app/web/`)
      - `server/`
@@ -71,7 +89,8 @@ Pass this file to your AI assistant (Antigravity/Claude/Cursor/Windsurf) and ask
 1.  **Create `artifacts/prd.md`**: Document the Product Requirements based on user input.
 2.  **Create `artifacts/tdd.md`**: Create a Technical Design Document outlining the architecture (e.g., Tech stack for `app/`, backend requirements, database choices).
 3.  **Update `AGENTS.md`**: Fill in the "Architecture" and "Code Conventions" sections based on the TDD.
-4.  **Create `artifacts/task.md`**: Create a checklist of tasks to implement the MVP. (Note: If the assistant has their own task management system, they can use that instead of creating this file.)
+4.  **Update `README.md`**: Add project description, features, and setup instructions based on the PRD and TDD.
+5.  **Create `artifacts/task.md`**: Create a checklist of tasks to implement the MVP. (Note: If the assistant has their own task management system, they can use that instead of creating this file.)
 
 ## Phase 3: Implementation
 
@@ -88,6 +107,7 @@ Pass this file to your AI assistant (Antigravity/Claude/Cursor/Windsurf) and ask
 2.  **Execute Tasks**:
     - Follow `artifacts/task.md` to build the features.
     - Create `artifacts/implementation_plan.md` for complex steps.
+    - **Keep `README.md` updated** as you implement features, add setup instructions, and document the current state of the project.
 
 ---
 
