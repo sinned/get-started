@@ -1,5 +1,7 @@
 # Get Started - Project Bootstrap Template
 
+**Version:** 1.0.0
+
 This repository is a **template and starter guide** for bootstrapping new coding projects with AI assistants. It provides a structured workflow to help you and your AI coding agent (Cursor, Claude, Windsurf, etc.) initialize new projects from scratch.
 
 ## Purpose

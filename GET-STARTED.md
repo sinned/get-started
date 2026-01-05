@@ -48,6 +48,8 @@ Alternatively, you can reference this guide directly via URL:
      ├── server/                  # Backend Server (Optional)
      ├── artifacts/               # Project Documentation (PRDs, TDDs, Logs)
      ├── README.md                # Project README (keep updated)
+     ├── CHANGELOG.md             # Changelog (Keep a Changelog format)
+     ├── VERSION                  # Current version number
      ├── HUMANS.md                # Human principals and team information
      └── AGENTS.md                # This file
      ```
@@ -73,7 +75,19 @@ Alternatively, you can reference this guide directly via URL:
      - Bundle Root (for iOS development)
      - Any other relevant human/team identifiers needed for development
 
-5. **Stub Directories**
+5. **Create `CHANGELOG.md`**
+   - Create a `CHANGELOG.md` at the root level to track all notable changes to the project.
+   - Follow the format specified in [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
+   - Use [Semantic Versioning](https://semver.org/spec/v2.0.0.html) for version numbers (MAJOR.MINOR.PATCH).
+   - Start with an "Unreleased" section for changes that haven't been released yet.
+   - Keep this file updated throughout all phases as changes are made.
+
+6. **Create `VERSION`**
+   - Create a `VERSION` file at the root level containing the current version number (e.g., `1.0.0`).
+   - Update this file whenever you release a new version following Semantic Versioning.
+   - This provides a single source of truth for the project version.
+
+7. **Stub Directories**
    - Create the following empty directories:
      - `app/` (and subdirectories as needed: `app/ios/`, `app/android/`, `app/web/`)
      - `server/`
@@ -110,6 +124,7 @@ Alternatively, you can reference this guide directly via URL:
     - Follow `artifacts/task.md` to build the features.
     - Create `artifacts/implementation_plan.md` for complex steps.
     - **Keep `README.md` updated** as you implement features, add setup instructions, and document the current state of the project.
+    - **Keep `CHANGELOG.md` updated** following [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) format and [Semantic Versioning](https://semver.org/spec/v2.0.0.html) as you make changes and release versions.
 
 ---
 
