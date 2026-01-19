@@ -61,6 +61,9 @@ Alternatively, you can reference this guide directly via URL:
 
      ## Code Conventions
      *To be defined in Phase 2.*
+
+     ## Tooling
+     - iOS projects should use `xcodegen` to generate and maintain the Xcode project file in `app/ios/`.
      ```
 
 3. **Create `README.md`**
