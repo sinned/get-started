@@ -12,13 +12,22 @@ This project contains a comprehensive guide (`GET-STARTED.md`) that outlines a p
 
 1. **Read the Guide**: Open `GET-STARTED.md` to understand the three-phase workflow
 2. **Start Your New Project**: Create a new repository (or use an existing empty one)
-3. **Run with Your AI Assistant**: 
-   - Share `GET-STARTED.md` with your AI coding assistant
-   - Ask it to: *"Follow the instructions in GET-STARTED.md to initialize the repository."*
-4. **Let the Workflow Guide You**: The AI will follow the structured phases to:
-   - Set up the project skeleton
-   - Create planning documents (PRD, TDD, task lists)
-   - Implement the code based on your requirements
+3. **Run with Your AI Assistant**: Use one of the options below (Cursor, or any assistant)
+4. **Let the Workflow Guide You**: The AI will follow the structured phases to set up the skeleton, create planning documents (PRD, TDD, task lists), and implement the code
+
+### Using in Cursor
+
+Cursor can use the **get-started** skill so the agent knows the workflow without you pasting the whole guide.
+
+- **In this repo:** The skill is already available. Open this repo in Cursor and say e.g. *"Follow the get-started workflow to bootstrap a new project"* or *"Use the get-started skill to initialize this repo."*
+- **In any other project:** Install the skill globally so it’s available everywhere:
+  1. Copy the skill folder to your global Cursor skills directory:
+     ```bash
+     mkdir -p ~/.cursor/skills
+     cp -r .cursor/skills/get-started ~/.cursor/skills/
+     ```
+  2. In your new or empty project, ask Cursor to follow the get-started workflow. The agent will use the skill and fetch the full guide from the URL below when it needs the exact templates.
+- **Without the skill:** Share the guide with the agent by reference. In any project, you can say: *"Follow the instructions in the document at this URL to initialize the repository: https://raw.githubusercontent.com/sinned/get-started/refs/heads/main/GET-STARTED.md"*
 
 ## What's Included
 
