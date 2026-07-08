@@ -1,56 +1,81 @@
 ---
 name: get-started
-description: Bootstraps a new application project using the Stub → Artifacts → Code workflow. Creates project skeleton (AGENTS.md, README.md, HUMANS.md, CHANGELOG.md, VERSION, directories), planning artifacts (PRD, TDD, task list), and guides implementation. Use when the user wants to start a new project from scratch, initialize a repository with the get-started workflow, or follow GET-STARTED.md.
+description: Bootstraps a new application project into a shipping loop: repo skeleton, product and technical artifacts, implementation, iOS device iteration, TestFlight, and App Store submission prep. Use when the user wants to start a new project from scratch, initialize an app repository with the get-started workflow, or follow GET-STARTED.md.
 ---
 
 # Get-Started Workflow
 
-Follow the three-phase workflow to bootstrap a new application project. For full templates and exact content, read **GET-STARTED.md** at the repository root (or fetch `https://raw.githubusercontent.com/sinned/get-started/refs/heads/main/GET-STARTED.md` when working in another repo).
+Follow the six-phase workflow to bootstrap a new application repository. For exact templates and operational details, read **GET-STARTED.md** at the repository root, or fetch `https://raw.githubusercontent.com/sinned/get-started/refs/heads/main/GET-STARTED.md` when working in another repo.
 
-## Phase 1: Stub Project Structure
+Do not run the bootstrap workflow inside the `get-started` instruction repository itself unless the user explicitly asks for a disposable test fixture or separate target directory.
 
-**Goal:** Create the skeleton without implementing logic.
+## Phase 1: Repo Skeleton
 
-1. **Initialize repository**: `git init` if needed; create `.gitignore` (e.g. `node_modules`, `dist`, `.env`, `.DS_Store`, `*.log`).
-2. **Create AGENTS.md** at root using the template in GET-STARTED.md (directory structure, Architecture and Code Conventions placeholders, note to see HUMANS.md).
-3. **Create README.md** at root; keep it updated in all phases.
-4. **Create HUMANS.md** at root for human principals (names, Apple Team ID, Bundle Root, other team identifiers).
-5. **Create CHANGELOG.md** at root: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), [Semantic Versioning](https://semver.org/spec/v2.0.0.html). Start with an "Unreleased" section.
-6. **Create VERSION** at root with current version (e.g. `1.0.0`).
-7. **Stub directories**: `app/` (and `app/ios/`, `app/android/`, `app/web/` as needed), `server/`, `artifacts/`.
+Create the baseline repository contract without product logic:
 
-## Phase 2: Build Artifacts
+- `.gitignore` with general, Xcode, ASC artifact, and signing-secret exclusions.
+- `AGENTS.md` with the project structure, XcodeGen contract, version/build discipline, capability rules, and agent operating loop.
+- `HUMANS.md` with principals, Apple Team ID, bundle root, App Store Connect IDs, URLs, TestFlight group, and device notes.
+- `README.md`, `CHANGELOG.md`, and `VERSION`.
+- `app/ios/`, `artifacts/`, `scripts/`, `metadata/`, and `.asc/artifacts/` as appropriate.
 
-**Goal:** Plan the product and technical design before coding.
+## Phase 2: Product + Technical Artifacts
 
-1. **Ask the user:** "The project skeleton is ready. What is the product idea you want to build? Please describe the features and goals."
-2. **Once the user responds:**
-   - Create `artifacts/prd.md` from their input.
-   - Create `artifacts/tdd.md` (architecture, tech stack for app/server, database, etc.).
-   - Update `AGENTS.md` Architecture and Code Conventions from the TDD.
-   - Update `README.md` with description, features, setup from PRD/TDD.
-   - Create `artifacts/task.md` for MVP tasks (or use the assistant’s own task system instead).
+Ask the user:
+
+> The project skeleton is ready. What is the product idea you want to build? Please describe the features, users, goals, and target platforms.
+
+Then create:
+
+- `artifacts/prd.md`
+- `artifacts/tdd.md`
+- `artifacts/task.md`
+- `artifacts/implementation_plan.md` when the work is complex
+
+Update `AGENTS.md`, `README.md`, and `CHANGELOG.md` from the artifacts.
 
 ## Phase 3: Implementation
 
-**Goal:** Execute the plan from Phase 2.
+Execute the plan with repeatable verification:
 
-1. **Setup development environment:**
-   - Server: e.g. `npm init` if in TDD.
-   - App:
-     - **iOS:** Use `xcodegen` to generate and maintain the Xcode project in `app/ios/`.
-     - Android: Create project in `app/android/`.
-     - Web: e.g. `npx create-react-app app/web` in `app/web/`.
-     - Cross-platform: e.g. `flutter create` in `app/` as per TDD.
-2. **Execute tasks:** Work from `artifacts/task.md`; use `artifacts/implementation_plan.md` for complex steps.
-3. **Ongoing:** Keep `README.md` and `CHANGELOG.md` (and `VERSION` on release) updated.
+- Use XcodeGen for iOS projects.
+- Store marketing version in `VERSION`.
+- Store `MARKETING_VERSION` and `CURRENT_PROJECT_VERSION` in `app/ios/project.yml`.
+- Display `Version x.y.z (n)` in the app.
+- Create `scripts/verify-ios.sh` and make it the default pre-install/pre-upload check.
+- Add app-specific smoke-test launch arguments for deterministic validation.
 
-## Quick reference
+## Phase 4: Fast iOS Device Iteration
 
-| Phase   | Outputs |
-|---------|--------|
-| 1 Stub  | `.gitignore`, AGENTS.md, README.md, HUMANS.md, CHANGELOG.md, VERSION, app/server/artifacts dirs |
-| 2 Artifacts | artifacts/prd.md, artifacts/tdd.md, artifacts/task.md, updated AGENTS.md and README.md |
-| 3 Implementation | Initialized app/server, features per task list, updated README and CHANGELOG |
+Create `scripts/device-validate-ios.sh` to build into `$TMPDIR`, install with `xcrun devicectl`, launch from the command line, support `--launch-only`, and optionally stream logs.
+
+If install succeeds but launch fails because the phone is locked, report that distinction clearly and ask the user to unlock the phone, then rerun with `--launch-only`.
+
+For UI work, capture simulator screenshots with `xcrun simctl io` using absolute paths.
+
+## Phase 5: TestFlight Distribution
+
+Treat TestFlight as a distribution lane, not the tight local iteration loop.
+
+Before upload, ensure the app record exists, bundle ID matches, icon and `CFBundleIconName` are valid, version/build is unique, XcodeGen is fresh, `scripts/verify-ios.sh` passes, archives go to `.asc/artifacts/`, and build processing completes before saying the build is ready.
+
+Prefer `asc` when installed. Include the API-key recovery path for machines without usable Xcode account state.
+
+## Phase 6: App Store Submission Prep
+
+Prepare metadata, compliance, screenshots, selected build, release notes, pricing, availability, review contact, review notes, demo account details, privacy answers, export compliance, age rating, and icon validation.
+
+Store canonical metadata in `metadata/` where possible and sync via `asc` or App Store Connect.
+
+## Quick Reference
+
+| Phase | Outputs |
+| --- | --- |
+| 1 Repo Skeleton | `.gitignore`, `AGENTS.md`, `HUMANS.md`, `README.md`, `CHANGELOG.md`, `VERSION`, `app/ios`, `artifacts`, `scripts`, `metadata`, `.asc/artifacts` |
+| 2 Artifacts | `artifacts/prd.md`, `artifacts/tdd.md`, `artifacts/task.md`, updated docs |
+| 3 Implementation | XcodeGen project, visible version/build, app code, `scripts/verify-ios.sh`, smoke args |
+| 4 Device Iteration | `scripts/device-validate-ios.sh`, device install/launch loop, simulator screenshots |
+| 5 TestFlight | archive/export/upload path, ASC auth recovery, group assignment, test notes |
+| 6 App Store | metadata, compliance, screenshots, selected build, submission checklist |
 
 For exact wording and templates, always refer to GET-STARTED.md.

@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Expanded the guide from a three-phase bootstrap into a six-phase iOS shipping loop covering device validation, TestFlight, and App Store prep.
+- Added version/build discipline, XcodeGen templates, verification scripts, device-install scripts, ASC recovery guidance, and App Store metadata checklists.
+- Added repository-specific `AGENTS.md` guidance to prevent agents from bootstrapping this instruction repository in place.
+- Added a visible version footer to `GET-STARTED.md`.
 - CHANGELOG.md creation step in Phase 1
 - Instructions to follow Keep a Changelog format and Semantic Versioning
 - Reminder to maintain CHANGELOG.md throughout project lifecycle
