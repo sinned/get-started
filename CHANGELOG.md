@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Required ongoing PRD, TDD, and related artifact synchronization at meaningful checkpoints, including the generated agent operating contract and skill wrapper.
 - Expanded the guide from a three-phase bootstrap into a six-phase iOS shipping loop covering device validation, TestFlight, and App Store prep.
 - Added version/build discipline, XcodeGen templates, verification scripts, device-install scripts, ASC recovery guidance, and App Store metadata checklists.
 - Added repository-specific `AGENTS.md` guidance to prevent agents from bootstrapping this instruction repository in place.

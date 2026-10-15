@@ -34,6 +34,15 @@ Then create:
 
 Update `AGENTS.md`, `README.md`, and `CHANGELOG.md` from the artifacts.
 
+## Ongoing Artifact Synchronization
+
+Include this requirement in the generated `AGENTS.md` and apply it throughout all subsequent phases:
+
+- Treat the PRD, TDD, task checklist, implementation plans, and other project artifacts as living documents.
+- At meaningful checkpoints (completed feature or milestone, changed requirements or architecture, and before handoff or release), review and sync affected artifacts with the agreed scope and actual implementation. Update product requirements and workflows in the PRD, technical decisions and validation/distribution plans in the TDD, and task status and supporting artifacts as needed.
+- Clearly distinguish agreed plans, implemented behavior, deferred work, and known gaps. Resolve discrepancies or record open decisions instead of silently changing requirements to fit unintended behavior.
+- Include necessary artifact updates with the related implementation change before handoff or release. Review at coherent checkpoints rather than after every small edit; no document edit is needed when nothing relevant changed.
+
 ## Phase 3: Implementation
 
 Execute the plan with repeatable verification:

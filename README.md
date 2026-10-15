@@ -51,6 +51,8 @@ The guide follows a structured approach:
 5. **TestFlight Distribution** - Archive, upload, process, and assign builds
 6. **App Store Submission Prep** - Prepare metadata, compliance, screenshots, and selected builds
 
+Throughout the workflow, agents must review and sync the PRD, TDD, task lists, and other affected artifacts at meaningful checkpoints: completed features or milestones, changed requirements or architecture, and before handoff or release.
+
 This ensures your project starts with a solid foundation, clear documentation, repeatable verification, and a path to real-device validation and distribution.
 
 ## Getting Started

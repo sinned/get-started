@@ -144,7 +144,15 @@ repo/
 6. Install to the phone when requested.
 7. If install succeeds but launch fails because the phone is locked, report install and launch separately.
 8. Use TestFlight only when distribution, review, or external validation is needed.
-9. Keep final status short: version/build, install/upload result, and verification commands.
+9. At each meaningful checkpoint (completed feature or milestone, changed requirements or architecture, and before handoff or release), review and sync `artifacts/prd.md`, `artifacts/tdd.md`, and other affected artifacts with the agreed scope and actual implementation. Follow the artifact synchronization checkpoint below.
+10. Keep final status short: version/build, install/upload result, and verification commands.
+
+## Artifact Synchronization Checkpoint
+
+- Treat the PRD, TDD, task checklist, and any implementation plans or other project artifacts as living documents throughout the project.
+- At each meaningful checkpoint, update product requirements, workflows, scope, and non-goals in the PRD; update architecture, data models, integrations, capabilities, and validation/distribution plans in the TDD; and reconcile task status and other affected artifacts.
+- Keep agreed plans, implemented behavior, deferred work, and known gaps clearly distinguished. Do not silently rewrite requirements to match an unintended implementation; resolve discrepancies or record them as open decisions.
+- Include affected artifact updates with the corresponding implementation change before handoff or release. Review at coherent checkpoints rather than after every small edit; if nothing relevant changed, no document edit is needed.
 ````
 
 ### Create `HUMANS.md`
@@ -254,6 +262,14 @@ For iOS apps, the TDD must define:
 - Smoke-test launch arguments.
 - Device-validation loop.
 - TestFlight and App Store path.
+
+### Keep Artifacts Current Throughout the Project
+
+Creating the artifacts is the start of an ongoing responsibility. Carry the **Artifact Synchronization Checkpoint** from the generated `AGENTS.md` into the project's working process for all subsequent phases.
+
+After completing a feature or milestone, when requirements or architecture change, and before handoff or release, review the PRD, TDD, task checklist, implementation plans, and other affected artifacts against the agreed scope and actual implementation. Update them together so requirements, technical decisions, task status, and supporting documentation remain consistent. Record deferred work, known gaps, and unresolved decisions explicitly.
+
+Use these coherent checkpoints instead of updating documents after every small edit. Include necessary artifact changes with the related implementation work; when the review finds no relevant changes, no document edit is needed.
 
 ## Phase 3: Implementation
 
